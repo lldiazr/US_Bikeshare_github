@@ -164,22 +164,30 @@ def user_stats(df,city):
     start_time = time.time()
 
     # Display counts of user types
-    print('The quantity and type of users in', city, 'are:', df['User Type'].value_counts())
+    user_types = df.groupby(['User Type'])['User Type'].count()
+    print(user_types, "\n")
+    if city != 'washington':
+        # Display counts of gender
+        gen = df.groupby(['Gender'])['Gender'].count()
+        print(gen)
+        # Display earliest, most recent, and most common year of birth
+        mryob = sorted(df.groupby(['Birth Year'])['Birth Year'], reverse=True)[0][0]
+        eyob = sorted(df.groupby(['Birth Year'])['Birth Year'])[0][0]
+        mcyob = df['Birth Year'].mode()[0]
+        print("The earliest year of birth is ", eyob, "\n")
+        print("The most recent year of birth is ", mryob, "\n")
+        print("The most common year of birth is ", mcyob, "\n")
 
-    # Display counts of gender
-    print('The quantity and gender of users in', city, 'are:', df['Gender'].value_counts())
-
-    # Display earliest, most recent, and most common year of birth
-    earliest_year = df['Birth Year'].min()
-    most_recent_year = df['Birth Year'].max()
-    most_popular_year = df['Birth Year'].mode()
-        
-    print("The most earliest birth year in:", city, earliest_year)
-    print("The most recent birth year:", city, most_recent_year)
-    print("The most common birth year:", city, most_popular_year)
-    
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
+    x = 1
+    while True:
+        raw = input('\nWould you like to see some raw data? Enter yes or no.\n')
+        if raw.lower() == 'yes':
+            print(df[x:x+5])
+            x = x+5
+        else:
+            break
 
 def data(df):
     start_loc = 0
