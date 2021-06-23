@@ -1,4 +1,3 @@
->>> HEAD
 ### US Bikeshare Data
 
 ### Date created
