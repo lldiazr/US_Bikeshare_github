@@ -189,21 +189,6 @@ def user_stats(df,city):
         else:
             break
 
-def data(df):
-    start_loc = 0
-    while True:
-            view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n').lower()
-            if view_data not in ['no','yes']:
-                print("Isn´t the correct answer, please write yes or no.")
-            elif view_data == 'yes':
-                start_loc += 5
-                print(df.iloc[start_loc : start_loc +5])
-            again = input('Would you like to see more? Yes or No').lower()
-            if again == 'no':
-                break
-            elif view_data == 'no':
-                return
-
 
 def main():
     while True:
