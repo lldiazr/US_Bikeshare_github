@@ -1,8 +1,9 @@
-#Import the libraries
+#Import the libraries necesaries to run the project
 import time
 import pandas as pd
 import numpy as np
 
+#Define the list for select the cities, months and days
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york': 'new_york_city.csv',
               'washington': 'washington.csv' }
