@@ -219,4 +219,3 @@ def main():
 if __name__ == "__main__":
 	main()
     
-##Reference links: https://github.com/ozlerhakan/bikeshare/blob/master/bikeshare.py  --  https://github.com/xhlow/udacity-bikeshare-project/blob/master/bikeshare.py
